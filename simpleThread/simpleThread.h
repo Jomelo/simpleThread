@@ -3,10 +3,9 @@
  * ********************************************************************
  * This file contains only macros which creats threads
  *
- * Autor:		Nils Feldkämper
- * Email:		nilsfeld@gmail.com
+ * Autor:		Nils Feldkï¿½mper
  * License:		all Free
- * Last edit:	17.05.2013
+ * Last edit:	23.11.2013
  
 
  *
