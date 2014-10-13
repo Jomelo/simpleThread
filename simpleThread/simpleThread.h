@@ -303,8 +303,8 @@
 //help macros
 	// macro: thread timer with return
 	#define simpleThread_THREAD_TIMER(timer_var, wait_time, timebase)\
-		if((long)(timebase() - timer_var) < 0) {  return; }\
-		timer_var = timebase()+wait_time;
+		if(!((timebase() - timer_var) >= wait_time)) {  return; }\
+		timer_var = timebase();
 
 	//macro: thread is running with return !
 	#define simpleThread_THREAD_isRun(name)\
