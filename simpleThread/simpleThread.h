@@ -105,7 +105,7 @@
 	// macro: creates the simpleThread managemand variables
 	#define simpleThread_init(cnt)\
 		FuncPtr g_simpleThread_priority[cnt+1];\
-		PROGMEM prog_uint8_t  g_simpleThread_cnt  = cnt+1;\
+		const PROGMEM uint8_t g_simpleThread_cnt = cnt+1;\
 		uint8_t g_simpleThread_start_stop[((cnt+1)/7)+1];\
 		uint8_t g_simpleThread_reset[((cnt+1)/7)+1];\
 		uint8_t g_simpleThread_loop_status = true;\
@@ -130,7 +130,7 @@
 // thread create
 	// macro: help to create a new thread: generate weak functions
 	#define simpleThread_help_new_thread(id, name, status)\
-		PROGMEM prog_uint8_t  g_simpleThread_id__##name  = id;\
+		const PROGMEM uint8_t g_simpleThread_id__##name  = id;\
 		void simpleThread_setup_##name(void);\
 		boolean simpleThread_loop_##name(void);\
 		void simpleThread_stable_##name(void);\
@@ -143,7 +143,7 @@
 	// macro: create a new thread with dynamc times 
 	#define simpleThread_new_timebased_dynamic(id, timebase, init_time, status, name)\
 		simpleThread_help_new_thread(id, name, status);\
-		PROGMEM prog_uint32_t  _simpleThread_time_default__##name  = init_time;\
+		const PROGMEM uint32_t   _simpleThread_time_default__##name  = init_time;\
 		unsigned long g_simpleThread_dynTime_##name = init_time;\
 		simpleThread_THREAD_FUNCTION_TIME_BASED(name, g_simpleThread_dynTime_##name, timebase);
 	// macro: create a event based thread
